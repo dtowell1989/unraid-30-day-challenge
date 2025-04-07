@@ -1,39 +1,59 @@
-# 📁 Week 1: Unraid Setup & File Sharing  
-**Focus Area:** IT / System Administration  
-**Time Spent:** [Insert hours spent this week]
+# 🗂️ Week 1: Unraid Setup & File Management  
+**Focus Area:** System Administration / Storage / Networking  
+**Time Spent:** ~5–6 hours
 
 ---
 
 ## ✅ Tasks Completed
-- ✅ Verified Unraid array and checked parity status
-- ✅ Set up basic user shares (`media`, `backups`, etc.)
-- ✅ Configured SMB sharing for access across devices
-- ✅ Enabled system notifications (email or push)
-- ✅ Explored the Community Apps plugin store
+
+- Set up Unraid array with 2x 18TB HDDs + 1 parity disk
+- Configured a 2-drive SSD cache pool (2x 128GB M.2 drives)
+- Created core user shares:
+  - `downloads` (Cache ➜ Array with mover enabled)
+  - `media`, `bulk`, `appdata`
+- Configured SMB settings for share access from Windows
+- Learned best practices for organizing folders by share vs by subfolder
+- Installed **Community Apps** plugin
+- Set up **notifications** via Gmail + SMS (Spectrum Mobile via `vtext.com`)
+- Explored Unassigned Devices:
+  - Mounted and formatted 256GB SSD (`Tinker`)
+  - Created subfolders: `docker_scratch/`, `unraid_backups/`
+- Installed **User Scripts** plugin
+- Wrote and tested a flash config backup script with timestamped folders
 
 ---
 
 ## 🧠 What I Learned
-- How Unraid handles storage using parity instead of traditional RAID
-- Setting up user shares and adjusting access control
-- Where key system settings live (Dashboard, Settings, Shares, etc.)
-- How to install community plugins safely
+
+- How Unraid separates storage into array, cache, and unassigned pools
+- Why shares are the key unit of organization (and tuning!) in Unraid
+- The importance of setting cache behavior and using the mover properly
+- That Unraid doesn't manage subfolders—you do that via SMB or command line
+- How to mount and repurpose unused hardware (SSD) with Unassigned Devices
+- How to configure and test SMTP email alerts and email-to-text for real-time notifications
 
 ---
 
-## ⚙️ Tools/Resources Used
-- Official Unraid documentation: [docs.unraid.net](https://docs.unraid.net)
-- YouTube – Spaceinvader One’s videos on basic Unraid setup
-- r/unRAID subreddit for tips and troubleshooting
+## 🧩 Challenges or Things I Spent Extra Time On
+
+- Understanding when/why to split data into multiple shares vs one bulk share
+- Formatting the unassigned SSD manually since Unraid doesn’t expose ZFS formatting in the UI
+- Figuring out the Gmail app password setup for Unraid SMTP notifications
 
 ---
 
-## 💬 Reflections
-- 🔹 I liked: the clean web UI, and how easy it was to spin up shares and install plugins  
-- 🔹 I struggled with: understanding parity vs traditional RAID at first  
-- 🔹 Next time I’d like to: start adding Docker containers and get into self-hosted apps
+## 📌 Notes to Future Me
+
+- I should review mover settings occasionally to ensure cache isn't filling up
+- Consider scheduling a cleanup script for old backups on the Tinker SSD
+- Eventually I may want to snapshot `/docker_scratch/` or test ZFS again
+- Look into Unraid flash backup via CA Appdata Backup plugin later
 
 ---
 
-## 📸 Screenshots / Logs
-> Save any screenshots from the Unraid UI here, or add notes on what you’d like to include later.
+## 🚀 Ready for Week 2
+
+- Docker apps next: I’ll start with something simple like FileBrowser or qBittorrent
+- I’ll map volumes to my structured shares and test automation tools like Watchtower
+- Might use `/mnt/disks/Tinker/docker_scratch` for testing or temp workloads
+
